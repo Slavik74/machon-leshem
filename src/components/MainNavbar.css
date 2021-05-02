@@ -1,0 +1,24 @@
+.c-mainnavbar .navbar{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.c-mainnavbar .nav-links {
+    color: rgb(12, 14, 12) !important ;
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+    
+.c-mainnavbar .nav-links:hover {
+    background-color: rgba(222, 250, 222, 0.4);
+}
+
+.c-mainnavbar .active {
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: rgba(102, 205, 171, 0.726);    
+}    
+.c-mainnavbar .active:hover {
+    background-color: mediumaquamarine;    
+}

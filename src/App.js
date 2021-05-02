@@ -3,11 +3,13 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 import HomePage from './Pages/HomePage/HomePage';
 import SignupPage from './Pages/SignupPage/SignupPage';
 import LoginPage from './Pages/LoginPage/LoginPage';
+import MainNavbar from './components/MainNavbar';
 
 function App() {
   return (
 
     <>
+      <MainNavbar/>
       <HashRouter>
         <Switch>
           <Route exact path="/" ><HomePage/></Route>
