@@ -10,8 +10,8 @@ export default function MainNavbar() {
             <Navbar.Brand href="#/">מכון לשם</Navbar.Brand>        
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mx-auto order-0">
-                    <Nav.Link className="nav-links"  href="#/onlinetest" >הכנה באינטרנט</Nav.Link>
-                    <Nav.Link className="nav-links" active href="#/login">בחן את עצמך חינם</Nav.Link>
+                    <Nav.Link className="nav-links"  href="#/online" >הכנה באינטרנט</Nav.Link>
+                    <Nav.Link className="nav-links preeminent"  href="#/mivdak">בחן את עצמך חינם</Nav.Link>
                 </Nav>
                 <Nav>
                     <Nav.Link className="nav-links" href="#/signup">הרשמה</Nav.Link>
