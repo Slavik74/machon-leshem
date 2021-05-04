@@ -8,8 +8,41 @@ body {
     text-align: right;
     margin: 0;
     padding: 0;
-    font-family: 'Arial (Hebrew)', Arial;
-    font-size: 14px;
+    font-size: 18px;
+    color: #414042;
+    line-height: 27px;
+    font-family: Assistant;
+    font-weight: 400;
+
 }
 
+
+h1 {
+  font-size: 36px;
+  direction: rtl;
+  font-weight: 700;
+}
+h2 {
+  font-size: 22px;
+  direction: rtl;
+  font-weight: 700;
+}
+h3 {
+  font-size: 16px;
+  font-weight: 700;
+  font-weight: 700;
+}
+h4 {
+  font-size: 14px;
+}
+h5 {
+  font-size: 12px;
+}
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap');
 

@@ -26,3 +26,7 @@
 .c-mainnavbar .active {
     color: rgb(8, 100, 0) !important;
 }
+
+.toggle {
+    margin: 10px !important;
+}

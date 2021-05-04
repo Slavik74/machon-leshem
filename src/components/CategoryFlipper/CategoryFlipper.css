@@ -1,0 +1,153 @@
+
+.p-online .box-wrapper {
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 6px;
+}
+.p-online .box-wrapper .flip-container {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.p-online .box-wrapper .flip-container:hover .back {
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+.p-online .box-wrapper .flip-container:hover .front {
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.p-online .box-wrapper .flip-container, .p-online .box-wrapper .front, .p-online .box-wrapper .back {
+    width: 100%;
+    height: 171px;
+}
+.p-online .box-wrapper .front .hole, .p-online .box-wrapper .back .hole, .p-online .box-wrapper .no-flip-container .hole {
+    display: none;
+}
+.p-online .box-wrapper .flipper {
+    transition: .6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+.p-online .box-wrapper .front, .p-online .box-wrapper .back {
+    background-color: #fff;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, .3);
+    border-radius: 7px;
+    backface-visibility: hidden;
+    transition: .6s;
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.p-online .box-wrapper .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    text-align: center;
+    overflow: hidden;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.p-online .box-wrapper .front .frontText {
+    font-size: 18px;
+    font-weight: 500;
+    color: #44494e;
+    overflow: hidden;
+    max-height: 70px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 13px;
+    line-height: 32px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.p-online .box-wrapper .front .underline {   
+    margin: 0 auto;
+    width: 63px;
+    height: 2px;
+    background-color: #3ea0d8;
+}
+.p-online .box-wrapper a {
+    text-decoration: none;
+    color: #42474c;
+}
+.p-online .box-wrapper .back {
+    transform: rotateY(-180deg);
+}
+.p-online .box-wrapper .back .backContainer {
+    overflow: hidden;
+    height: 100%}
+.p-online .box-wrapper .back .backTitle {
+    height: 50px;
+    background-color: #3ea0d8;
+    margin-bottom: 11px;
+    padding: 20px 18px 14px;
+}
+.p-online .box-wrapper .back .backTitle .backTitleText {
+    height: 20px;
+    overflow: hidden;
+    color: #fff;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 19px;
+}
+.p-online .box-wrapper .back ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;  
+    margin: 0 13px;
+    margin-top: -3px;
+}
+.p-online .box-wrapper .back ul li {
+    margin-bottom: 10px;
+}
+.p-online .box-wrapper .back ul li:before {
+    background: url(./../../assets/images/checkMark.svg) no-repeat;
+    width: 23px;
+    height: 20px;
+    display: inline-block;
+    content: " ";
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+@media screen and (max-width:760px) and (min-width: 576px) {
+  .p-online .box-wrapper .back .backContainer {
+      display: none;
+  }
+}
+
+@media screen and (max-width:1200px) and (min-width: 576px) {
+
+  .p-online .box-wrapper .back .backTitle .backTitleText {
+    font-weight: 300;
+    font-size: 18px;
+  }
+  .p-online .box-wrapper .back ul {
+      margin: 0 2px;
+      margin-top: -7px;
+      font-size: 14px;
+      font-weight: 300;  
+  }
+  .p-online .box-wrapper .back ul li {
+      margin-bottom: 5px;
+  }
+  .p-online .box-wrapper .back ul li:before {
+      background-size: 50%;
+  }
+
+
+}
+
+  
+  
+  
