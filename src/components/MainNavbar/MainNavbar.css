@@ -27,6 +27,14 @@
     color: rgb(8, 100, 0) !important;
 }
 
-.toggle {
+.c-mainnavbar .toggle {
     margin: 10px !important;
+}
+
+.c-mainnavbar .brand{
+    font-weight: 900;
+}
+
+.c-mainnavbar .logo-img{
+    width: 32px;
 }
