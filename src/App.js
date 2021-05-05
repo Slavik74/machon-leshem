@@ -5,6 +5,8 @@ import LoginPage from './Pages/LoginPage/LoginPage';
 import MainNavbar from './components/MainNavbar/MainNavbar';
 import MivdakPage from './Pages/MivdakPage/MivdakPage';
 import OnlinePage from './Pages/OnlinePage/OnlinePage';
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -19,6 +21,7 @@ function App() {
           <Route exact path="/signup"><SignupPage/></Route>
           <Route exact path="/mivdak"><MivdakPage/></Route>
           <Route exact path="/online"><OnlinePage/></Route>
+          <Route path="/"><NotFoundPage/></Route>
         </Switch>
       </HashRouter>
     </>
