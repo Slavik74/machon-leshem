@@ -1,3 +1,9 @@
 .p-home{
-    
+    width: 100%;
+}
+.p-home .gray-banner{
+    background-color: rgb(238,238,238);
+    margin-top: 1px;
+    padding: 25px 0;
+    text-align: center;
 }

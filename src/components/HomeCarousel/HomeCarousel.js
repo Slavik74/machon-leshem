@@ -13,7 +13,7 @@ export default function HomeCarousel() {
 
         <div className="c-homecarousel">
             <div className='container-fluid' >
-                <Carousel fade interval={1400}  >
+                <Carousel fade interval={1400} indicators={false} >
                     <Carousel.Item>
                         <img className="d-block w-100" src={img1} />
                         <Carousel.Caption></Carousel.Caption>
