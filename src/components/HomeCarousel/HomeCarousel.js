@@ -15,23 +15,23 @@ export default function HomeCarousel() {
             <div className='container-fluid' >
                 <Carousel fade interval={1400} indicators={false} >
                     <Carousel.Item>
-                        <img className="d-block w-100" src={img1} />
+                        <img className="d-block w-100" src={img1} alt="" />
                         <Carousel.Caption></Carousel.Caption>
                     </Carousel.Item  >
                     <Carousel.Item>
-                        <img className="d-block w-100" src={img2} />
+                        <img className="d-block w-100" src={img2} alt="" />
                         <Carousel.Caption></Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <img className="d-block w-100" src={img3} />
+                        <img className="d-block w-100" src={img3} alt="" />
                         <Carousel.Caption></Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <img className="d-block w-100" src={img4} />
+                        <img className="d-block w-100" src={img4} alt="" />
                         <Carousel.Caption></Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <img className="d-block w-100" src={img5} />
+                        <img className="d-block w-100" src={img5} alt="" />
                         <Carousel.Caption></Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>

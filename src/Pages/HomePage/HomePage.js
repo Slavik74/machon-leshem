@@ -1,17 +1,45 @@
 import React from 'react';
-import { Alert, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import HomeCarousel from '../../components/HomeCarousel/HomeCarousel';
 import './HomePage.css'
+import JobElements from './../../components/JobElements/JobElements';
 
 function HomePage(props) {
+
+    const jobElement1 = {        
+        title:      "מכון ההכנה המנוסה והמוביל בארץ",
+        infotext:   "למכון לשם ניסיון של למעלה מ-28 שנים בהכנה למבחני מיון והשמה. הצטרפו אל יותר מ-מיליון לקוחות שבחרו בהכנה של מכון לשם",
+        picture:    'assets/images/trophy.png'
+    }
+
+    const jobElement2 = {        
+        title:      "הכנה אונליין",
+        infotext:   "לקוחות מכון לשם נהנים מגישה מכל מקום ובכל עת למאגר שבו אלפי חומרי תרגול מקוונים המותאמים למגוון מבחני מיון",
+        picture:    'assets/images/ruller.png'
+    }
+
+    const jobElement3 = {        
+        title:      "בניית אמון הדדי ארוך טווח",
+        infotext:   "שביעות הרצון והאמון שנבנה עם השנים גורמים ללקוחות לבחור במכון לשם בכל שלב בחייהם: לימודים, צבא ועבודה",
+        picture:    'assets/images/handshake.png'
+    }
+
     return (
 
         <Container className="p-home">
                 <HomeCarousel />
-                <div className="gray-banner">
-                    <h1>1,000,000</h1>
-                    <p3>ויותר נבחנים סומכים על מכון לשם</p3>
+
+                <div className="trust-section">
+                    <div class="uppertext">1,000,000</div>
+                    <div class="lowertext">ויותר נבחנים סומכים על מכון לשם</div>
                 </div>
+
+                <div className="row job-elements-container">
+                    <JobElements {...jobElement1} />
+                    <JobElements {...jobElement2} />
+                    <JobElements {...jobElement3} />
+                </div>
+
         </Container>
 
     );

@@ -1,9 +1,50 @@
 .p-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
 }
-.p-home .gray-banner{
-    background-color: rgb(238,238,238);
-    margin-top: 1px;
-    padding: 25px 0;
+
+
+.p-home .trust-section {
+    width: 100%;
+    background-color: #eee;
+    margin-top: 20px; 
+    padding-bottom: 10px;
+    max-width: 1080px;
+}
+
+.p-home .trust-section .uppertext {
+    line-height: 77px;
+    color: #171717;
+    font-size: 120px;
     text-align: center;
+    padding-top: 30px;
+}
+
+.p-home .trust-section .lowertext {
+    line-height: 30px;
+    padding-top: 0;
+    margin-top: 30px;
+    font-weight: 300;
+    color: #171717;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+
+.p-home .job-elements-container{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+@media screen and (max-width:1200px) {
+    .p-home .trust-section .uppertext {
+        line-height: 77px;
+        font-size: 80px;
+        padding-top: 30px;
+    }
+    
 }

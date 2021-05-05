@@ -1,0 +1,32 @@
+
+.p-home .job-elements-container .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    padding: 10px;
+    margin: 10px 0 10px 10px;
+}
+
+
+.p-home .job-elements-container .box .colorInfoTitle {
+    margin: 0 auto;
+    color: #42474c;
+    font-weight: 700 !important;
+    font-size: 15px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+.p-home .job-elements-container .box .colorInfoContentText {
+    line-height: 20px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.p-home .job-elements-container img {
+    padding-top: 10px;
+    padding-bottom: 10px;    
+    width: 60px;
+    
+}
+
