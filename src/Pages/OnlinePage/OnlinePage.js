@@ -11,7 +11,7 @@ export default function OnlinePage() {
     useEffect(() => {       
 
         setCategories(categoriesJSON.map(category =>(
-            <CategoryFlipper key={category.id} Title={category.Name} Sets={category.Sets} />
+            <CategoryFlipper key={category.id} Title={category.Name} Sets={category.Sets} Url={category.Url} />
         )
         ));
 
