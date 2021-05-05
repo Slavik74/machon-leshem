@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/machon-leshem/static/css/main.218f63cb.chunk.css",
-    "main.js": "/machon-leshem/static/js/main.983dbcbc.chunk.js",
-    "main.js.map": "/machon-leshem/static/js/main.983dbcbc.chunk.js.map",
+    "main.js": "/machon-leshem/static/js/main.6e62c704.chunk.js",
+    "main.js.map": "/machon-leshem/static/js/main.6e62c704.chunk.js.map",
     "runtime-main.js": "/machon-leshem/static/js/runtime-main.005910e0.js",
     "runtime-main.js.map": "/machon-leshem/static/js/runtime-main.005910e0.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/machon-leshem/static/css/2.4c97ca4f.chunk.css",
@@ -27,6 +27,6 @@
     "static/css/2.4c97ca4f.chunk.css",
     "static/js/2.54da2716.chunk.js",
     "static/css/main.218f63cb.chunk.css",
-    "static/js/main.983dbcbc.chunk.js"
+    "static/js/main.6e62c704.chunk.js"
   ]
 }
