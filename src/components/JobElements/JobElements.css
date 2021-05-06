@@ -11,11 +11,11 @@
 
 .p-home .job-elements-container .box .colorInfoTitle {
     margin: 0 auto;
-    color: #42474c;
     font-weight: 700 !important;
     font-size: 15px;
     padding-top: 5px;
     margin-bottom: 10px;
+    text-align: center;
 }
 .p-home .job-elements-container .box .colorInfoContentText {
     line-height: 20px;

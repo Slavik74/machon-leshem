@@ -4,24 +4,28 @@ import HomeCarousel from '../../components/HomeCarousel/HomeCarousel';
 import './HomePage.css'
 import JobElements from './../../components/JobElements/JobElements';
 
+import trophy from './../../components/JobElements/images/trophy.png'
+import ruller from './../../components/JobElements/images/ruller.png'
+import handshake from './../../components/JobElements/images/handshake.png'
+
 function HomePage(props) {
 
     const jobElement1 = {        
         title:      "מכון ההכנה המנוסה והמוביל בארץ",
         infotext:   "למכון לשם ניסיון של למעלה מ-28 שנים בהכנה למבחני מיון והשמה. הצטרפו אל יותר מ-מיליון לקוחות שבחרו בהכנה של מכון לשם",
-        picture:    'assets/images/trophy.png'
+        picture:    trophy
     }
 
     const jobElement2 = {        
         title:      "הכנה אונליין",
         infotext:   "לקוחות מכון לשם נהנים מגישה מכל מקום ובכל עת למאגר שבו אלפי חומרי תרגול מקוונים המותאמים למגוון מבחני מיון",
-        picture:    'assets/images/ruller.png'
+        picture:    ruller
     }
 
     const jobElement3 = {        
         title:      "בניית אמון הדדי ארוך טווח",
         infotext:   "שביעות הרצון והאמון שנבנה עם השנים גורמים ללקוחות לבחור במכון לשם בכל שלב בחייהם: לימודים, צבא ועבודה",
-        picture:    'assets/images/handshake.png'
+        picture:    handshake
     }
 
     return (
