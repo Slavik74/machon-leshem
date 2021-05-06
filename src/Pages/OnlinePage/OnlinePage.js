@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Alert, Container } from 'react-bootstrap';
 import CategoryFlipper from '../../components/CategoryFlipper/CategoryFlipper';
 import './OnlinePage.css'
 import categoriesJSON from './../../data/Category.json';
 
-export default function OnlinePage() {
+export default function OnlinePage({activeUser}) {
 
     const [categories, setCategories] = useState([])
 
@@ -21,6 +21,17 @@ export default function OnlinePage() {
         
     return (
         <Container className="p-online">
+
+                {activeUser ? 
+                    <div className="welcome-alert">
+                        <Alert variant="success">
+                            שלום  {activeUser.lname} {activeUser.fname}, בחר/י את סוג ההכנה ובוא/י נתחיל
+                        </Alert>
+                    </div>
+                    :null
+                    
+                }
+
                 <div className="col-sm-12 page-title">
                     <h1>
                         מבחני קבלה לעבודה
@@ -29,13 +40,10 @@ export default function OnlinePage() {
                 </div>
 
                 <div class="row boxes-wrapper">
-                    {
-                        categories.map(box => (box))
-                    }
+                {
+                    categories.map(box => (box))
+                }
                 </div>
-
-
-
 
             </Container>
     );

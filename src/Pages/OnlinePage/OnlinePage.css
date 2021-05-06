@@ -19,3 +19,8 @@
     padding-left: 25px;
     padding-right: 25px;
 }
+
+.p-online .welcome-alert{
+    text-align: center;
+    margin-top: 24px;
+}

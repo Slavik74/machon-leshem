@@ -1,14 +1,41 @@
 import React, { useState } from 'react';
 import { Alert, Container, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import './LoginPage.css'
 
-function LoginPage() {
+function LoginPage({ activeUser, users, onLogin }) {
     const [email, setEmail] = useState("");
     const [pwd, setPwd] = useState("");
     const [showInvalidLogin, setShowInvalidLogin] = useState(false);
 
 
+
+    if (activeUser) {
+        return <Redirect to="/online"/>
+    }    
+
+    //const history = useHistory();
+
+
+    function login(e) {
+        e.preventDefault();
+
+        let activeUser = null;
+        for (const user of users) {
+            if (user.login(email, pwd)) {
+                activeUser = user;
+                break;
+            }
+        }
+
+        if (activeUser) {
+            onLogin(activeUser);
+            //history.push("/online");
+        } else {
+            setShowInvalidLogin(true);
+        }
+
+    }
 
     return (
 
@@ -18,7 +45,7 @@ function LoginPage() {
                 <div class="col-sm-4 signup-vertical-sep-text">כניסה ללקוחות</div>
                 <div class="col-sm-4 signup-vertical-sep"></div>
                 {showInvalidLogin ? <Alert variant="danger">שגיאה בהזנת הנתונים</Alert> : null}
-                <Form>
+                <Form onSubmit={login}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>דוא"ל</Form.Label>
                         <Form.Control type="email" className="dir-ltr-left"

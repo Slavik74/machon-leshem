@@ -9,18 +9,27 @@ import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { useState } from 'react';
+import UserModel from './model/UserModel';
+import usersJSON from './data/users.json';
 
 function App() {
+
+
+  const [users, setUsers] = useState(usersJSON.map(plainUser => new UserModel(plainUser)));
+  const [activeUser, setActiveUser] = useState(null);
+
+
   return (
     <>
       <MainNavbar/>
       <HashRouter>
         <Switch>
           <Route exact path="/" ><HomePage/></Route>
-          <Route exact path="/login"><LoginPage/></Route>
+          <Route exact path="/login"><LoginPage activeUser={activeUser} users={users} onLogin={user => setActiveUser(user)}/></Route>
           <Route exact path="/signup"><SignupPage/></Route>
           <Route exact path="/mivdak"><MivdakPage/></Route>
-          <Route exact path="/online"><OnlinePage/></Route>
+          <Route exact path="/online"><OnlinePage activeUser={activeUser}/></Route>
           <Route path="/"><NotFoundPage/></Route>
         </Switch>
       </HashRouter>
