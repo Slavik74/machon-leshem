@@ -40,7 +40,7 @@ function LoginPage({ activeUser, users, onLogin }) {
     return (
 
         <Container className="p-login">
-            <div className="loginContainer">
+            <div className="login-container">
                 <div class="col-sm-4 signup-vertical-sep"></div>
                 <div class="col-sm-4 signup-vertical-sep-text">כניסה ללקוחות</div>
                 <div class="col-sm-4 signup-vertical-sep"></div>
@@ -50,9 +50,6 @@ function LoginPage({ activeUser, users, onLogin }) {
                         <Form.Label>דוא"ל</Form.Label>
                         <Form.Control type="email" className="dir-ltr-left"
                             value={email} onChange={e => setEmail(e.target.value)} />
-                        <Form.Text className="text-muted">
-                        אנו לעולם לא נשתף אותו עם אף גורם אחר
-                        </Form.Text>
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>סיסמה</Form.Label>
