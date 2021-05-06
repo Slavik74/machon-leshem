@@ -73,6 +73,8 @@ function SignupPage({activeUser, users, onSignup}) {
             for (const user of users) {
                 if (user.email===email) {                
                     setUserExist(true)
+                    onSignup(null);
+                    return
                 }
             }
 
@@ -104,7 +106,10 @@ function SignupPage({activeUser, users, onSignup}) {
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>דוא"ל</Form.Label>
                         <Form.Control type="text" className="dir-ltr-left"
-                            onChange={ e => setField('email', e.target.value)}
+                            onChange={ 
+                                e => {setField('email', e.target.value)
+                                setUserExist(false)
+                            }}
                             isInvalid={ !!errors.email }
                         />
                         <Form.Control.Feedback type='invalid'>
