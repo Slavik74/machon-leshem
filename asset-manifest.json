@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/machon-leshem/static/css/main.998ddf3c.chunk.css",
-    "main.js": "/machon-leshem/static/js/main.0f452007.chunk.js",
-    "main.js.map": "/machon-leshem/static/js/main.0f452007.chunk.js.map",
-    "runtime-main.js": "/machon-leshem/static/js/runtime-main.5031a5ca.js",
-    "runtime-main.js.map": "/machon-leshem/static/js/runtime-main.5031a5ca.js.map",
+    "main.css": "/machon-leshem/static/css/main.e458e249.chunk.css",
+    "main.js": "/machon-leshem/static/js/main.587ccd44.chunk.js",
+    "main.js.map": "/machon-leshem/static/js/main.587ccd44.chunk.js.map",
+    "runtime-main.js": "/machon-leshem/static/js/runtime-main.8ffaf40d.js",
+    "runtime-main.js.map": "/machon-leshem/static/js/runtime-main.8ffaf40d.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/machon-leshem/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.18e34c2a.chunk.js": "/machon-leshem/static/js/2.18e34c2a.chunk.js",
-    "static/js/2.18e34c2a.chunk.js.map": "/machon-leshem/static/js/2.18e34c2a.chunk.js.map",
-    "static/js/3.49989018.chunk.js": "/machon-leshem/static/js/3.49989018.chunk.js",
-    "static/js/3.49989018.chunk.js.map": "/machon-leshem/static/js/3.49989018.chunk.js.map",
+    "static/js/2.6edb42fa.chunk.js": "/machon-leshem/static/js/2.6edb42fa.chunk.js",
+    "static/js/2.6edb42fa.chunk.js.map": "/machon-leshem/static/js/2.6edb42fa.chunk.js.map",
+    "static/js/3.68b8adee.chunk.js": "/machon-leshem/static/js/3.68b8adee.chunk.js",
+    "static/js/3.68b8adee.chunk.js.map": "/machon-leshem/static/js/3.68b8adee.chunk.js.map",
     "index.html": "/machon-leshem/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/machon-leshem/static/css/2.4c97ca4f.chunk.css.map",
-    "static/css/main.998ddf3c.chunk.css.map": "/machon-leshem/static/css/main.998ddf3c.chunk.css.map",
-    "static/js/2.18e34c2a.chunk.js.LICENSE.txt": "/machon-leshem/static/js/2.18e34c2a.chunk.js.LICENSE.txt",
+    "static/css/main.e458e249.chunk.css.map": "/machon-leshem/static/css/main.e458e249.chunk.css.map",
+    "static/js/2.6edb42fa.chunk.js.LICENSE.txt": "/machon-leshem/static/js/2.6edb42fa.chunk.js.LICENSE.txt",
     "static/media/1.4d8194a6.jpg": "/machon-leshem/static/media/1.4d8194a6.jpg",
     "static/media/2.a211999b.jpg": "/machon-leshem/static/media/2.a211999b.jpg",
     "static/media/3.79ca85eb.jpg": "/machon-leshem/static/media/3.79ca85eb.jpg",
@@ -23,10 +23,10 @@
     "static/media/clip-art-green-checkmark.d2482b5e.png": "/machon-leshem/static/media/clip-art-green-checkmark.d2482b5e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.5031a5ca.js",
+    "static/js/runtime-main.8ffaf40d.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.18e34c2a.chunk.js",
-    "static/css/main.998ddf3c.chunk.css",
-    "static/js/main.0f452007.chunk.js"
+    "static/js/2.6edb42fa.chunk.js",
+    "static/css/main.e458e249.chunk.css",
+    "static/js/main.587ccd44.chunk.js"
   ]
 }
