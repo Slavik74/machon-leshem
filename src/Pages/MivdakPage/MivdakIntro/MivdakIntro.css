@@ -1,0 +1,23 @@
+.c-mivdakintro{
+    background-color: rgb(238, 238, 230);
+    height: 100%;
+}
+
+.c-mivdakintro .sub-title{
+    font-weight: bold;
+    line-height: 40px;
+}
+
+.c-mivdakintro li{
+    line-height: 25px;
+}
+.c-mivdakintro .startbtn-box{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.c-mivdakintro .btn-flat {
+    background-color: green;
+    color: white;
+}

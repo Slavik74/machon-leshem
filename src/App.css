@@ -47,3 +47,7 @@ hr {
   direction: ltr;
   text-align: left;
 }
+
+.bold{
+  font-weight: bold;
+}

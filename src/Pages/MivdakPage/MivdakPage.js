@@ -1,10 +1,15 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import './MivdakPage.css'
+import MivdakIntro from './MivdakIntro/MivdakIntro';
 
 export default function MivdakPage() {
     return (
         <Container className="p-mivdak">
-            <h1 className="display-1">מיבדק חינם</h1>
+            <div className="mivdak-title">בחן את עצמך</div>
+            <div className="mivdak-container">
+                <MivdakIntro />
+            </div>
         </Container>
     );
 }

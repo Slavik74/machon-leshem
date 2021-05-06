@@ -1,3 +1,14 @@
-.p-mivdak{
-    
+.p-mivdak .mivdak-container {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+    height: 100%;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+.p-mivdak .mivdak-title{
+    font-size: 30px;
+    line-height: 32px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
