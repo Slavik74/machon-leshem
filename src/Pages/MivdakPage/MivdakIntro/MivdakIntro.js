@@ -2,7 +2,8 @@ import React from 'react';
 import { Container, Button } from 'react-bootstrap';
 import './MivdakIntro.css'
 
-export default function MivdakIntro() {
+export default function MivdakIntro({handleStartTests}) {
+
     return (
         <Container className="c-mivdakintro">
             <div className="text">המבחנים ב"בחן את עצמך" מתאימים לרמת הקושי במבחני המיון במכונים השונים. כך תוכל לקבל מידע אמין על סיכוייך להצליח.</div>
@@ -27,7 +28,8 @@ export default function MivdakIntro() {
             </ul>
 
             <div className="startbtn-box">
-                <Button variant="flat" size="xxl">התחל מבדק</Button>
+                <Button variant="flat-green" size="xxl"
+                    onClick={handleStartTests}>התחל מבדק</Button>
             </div>
 
         </Container>
