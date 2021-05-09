@@ -3,8 +3,9 @@ export default class MivdakModel {
     #pwd;   // pwd is a private property
     constructor(plainMivdak) {
         this.name = plainMivdak.name;  
-        this.Time = plainMivdak.Time      
-        this.TEST_NUM = plainMivdak.TEST_NUM                
+        this.Time = plainMivdak.Time;
+        this.TEST_NUM = plainMivdak.TEST_NUM;
+        this.Hesber = plainMivdak.Hesber;
         this.QUEST_NUM = plainMivdak.QUEST_NUM;
         this.QUESTION = plainMivdak.QUESTION;
         this.QUES_PIC1 = plainMivdak.QUES_PIC1;

@@ -10,46 +10,50 @@ import CountDown from './../../../components/CountDown/CountDown';
 const clockIcon = <FontAwesomeIcon icon={faClock} />
 
 export default function TestShapes({testsData, handleTimerEnd}) {
-
+    
     const [qnumber, setQnumber] = useState(1)
 
-    return (
-        <div className="c-testshapes">
+    if (testsData[qnumber-1]===undefined) return null;
 
-            <div className="header">
-                <Row>
-                    <Col md={4} className="qnumber-box">
+
+    const testTime = Number(testsData[qnumber-1].Time)*60;
+    const answers = []
+    for (var i = 1; i <= Number(testsData[qnumber-1].ANSWER_COUNT); i++) {
+        answers.push(<Button key={i} variant="answer" block>תשובה אפשרית {i}</Button>);
+    }
+
+    return (
+        <Container className="c-testshapes">
+
+            <Row className="header">
+                    <Col md={2} className="qnumber-box">
                         שאלה {qnumber} מתוך {testsData.length}
                     </Col>
 
-                    <Col md={4} className="description-box">
-                        בחר את התשובה הנכונה בהכרח
+                    <Col md={8} className="description-box">
+                            {testsData[0]?testsData[0].Hesber:""}
                     </Col>
-
-                    <Col md={4} className="timer-box dir-ltr-left">
-                        {clockIcon}&nbsp;&nbsp;<CountDown Seconds={60} OnTimerEnd={handleTimerEnd} />
+                    <Col md={2} className="timer-box">
+                        <CountDown Seconds={testTime} OnTimerEnd={handleTimerEnd} />&nbsp;&nbsp;{clockIcon}
                     </Col>
-
-                </Row>
-
-            </div>
+            </Row>
 
             <div className="content">
-            <Row>
+                <Row>
                     <Col md={6} className="question-box">
-                        שאלה
+                        <div>שאלה:</div>
+                        <img className="question-img" src={require(`./TestImages/${testsData[qnumber-1].QUES_PIC1}.gif`).default} />
+                        <br /><br />
+                        <div>תשובות אפשריות:</div>
+                        <img className="answers-img" src={require(`./TestImages/${testsData[qnumber-1].QUES_PIC2}.gif`).default} />
+                        
                     </Col>
 
                     <Col md={6} className="answers-box">
-                        <Button variant="answer" block>תשובה אפשרית 1</Button>
-                        <Button variant="answer" block>תשובה אפשרית 2</Button>
-                        <Button variant="answer" block>תשובה אפשרית 3</Button>
-                        <Button variant="answer" block>תשובה אפשרית 4</Button>
+                        {answers}
                     </Col>
 
                 </Row>
-
-
             </div>
 
             <div className="footer">
@@ -66,6 +70,6 @@ export default function TestShapes({testsData, handleTimerEnd}) {
                 </div>
             </div>
 
-        </div>
+        </Container>
     )
 }

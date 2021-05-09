@@ -9,7 +9,7 @@ import MivdakModel from './../../model/MivdakModel';
 export default function MivdakPage() {
 
 
-    const [tests, setTests] = useState(testsJSON.map(plainTest => new MivdakModel(plainTest)));
+    const tests = testsJSON.map(plainTest => new MivdakModel(plainTest));
     const [testNum, setTestNum] = useState(null)
     const [test_current, setTest_current] = useState(null)
 
