@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {formatTime} from '../../Utils'
 
 export default function CountDown({seconds, onTimerEnd}) {   
 
-    const [timer, setTimer] = React.useState(Seconds);
+    const [timer, setTimer] = React.useState(seconds);
     const id = React.useRef(null);
 
     const clear = () => {

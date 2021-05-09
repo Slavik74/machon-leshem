@@ -71,7 +71,7 @@ function SignupPage({activeUser, users, onSignup}) {
             const { lname, fname, email, pwd } = form
 
             for (const user of users) {
-                if (user.email===email) {                
+                if (user && user.email===email) {                
                     setUserExist(true)
                     onSignup(null);
                     return

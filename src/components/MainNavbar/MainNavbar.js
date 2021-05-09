@@ -3,7 +3,7 @@ import { Nav, Navbar } from 'react-bootstrap'
 import './MainNavbar.css'
 import logo from './../../assets/images/clip-art-green-checkmark.png'
 
-export default function MainNavbar() {
+export default function MainNavbar({activeUser, onLogout}) {
     return (
         <div className="c-mainnavbar">
             <Navbar expand="md" className="navbar shadow">
@@ -18,8 +18,15 @@ export default function MainNavbar() {
                     <Nav.Link className="nav-links preeminent"  href="#/mivdak">בחן את עצמך חינם</Nav.Link>
                 </Nav>
                 <Nav>
-                    <Nav.Link className="nav-links" href="#/signup">הרשמה</Nav.Link>
-                    <Nav.Link className="nav-links" href="#/login">כניסה</Nav.Link>
+                    {
+                        activeUser?
+                            <Nav.Link className="nav-links" href="#" onClick={() => onLogout()}>יציאה</Nav.Link>
+                        :
+                            <>
+                            <Nav.Link className="nav-links" href="#/signup">הרשמה</Nav.Link>
+                            <Nav.Link className="nav-links" href="#/login">כניסה</Nav.Link>    
+                            </>
+                    }
                     <Nav.Link className="nav-links" href="#/contact">צור קשר</Nav.Link>
                 </Nav>
             </Navbar.Collapse>

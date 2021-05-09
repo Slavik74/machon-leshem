@@ -26,7 +26,7 @@ function App() {
 
   return (
     <>
-      <MainNavbar/>
+      <MainNavbar activeUser={activeUser} onLogout={() => setActiveUser(null)} />
       <HashRouter>
         <Switch>
           <Route exact path="/" ><HomePage/></Route>
