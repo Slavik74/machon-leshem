@@ -8,7 +8,7 @@ import trophy from './../../components/JobElements/images/trophy.png'
 import ruller from './../../components/JobElements/images/ruller.png'
 import handshake from './../../components/JobElements/images/handshake.png'
 
-function HomePage(props) {
+function HomePage() {
 
     const jobElement1 = {        
         title:      "מכון ההכנה המנוסה והמוביל בארץ",

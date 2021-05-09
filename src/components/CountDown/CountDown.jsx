@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import {formatTime} from '../../Utils'
 
-export default function CountDown({Seconds, OnTimerEnd}) {   
+export default function CountDown({seconds, onTimerEnd}) {   
 
     const [timer, setTimer] = React.useState(Seconds);
     const id = React.useRef(null);
@@ -19,7 +19,7 @@ export default function CountDown({Seconds, OnTimerEnd}) {
     React.useEffect(() => {
         if (timer === 0) {
             clear();
-            OnTimerEnd();
+            onTimerEnd();
         }
     }, [timer]);
 

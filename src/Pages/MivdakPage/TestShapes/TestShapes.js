@@ -34,7 +34,7 @@ export default function TestShapes({testsData, handleTimerEnd}) {
                             {testsData[0]?testsData[0].Hesber:""}
                     </Col>
                     <Col md={2} className="timer-box">
-                        <CountDown Seconds={testTime} OnTimerEnd={handleTimerEnd} />&nbsp;&nbsp;{clockIcon}
+                        <CountDown seconds={testTime} onTimerEnd={handleTimerEnd} />&nbsp;&nbsp;{clockIcon}
                     </Col>
             </Row>
 
