@@ -5,10 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import './TestShapes.css'
 import { useState } from 'react';
+import CountDown from './../../../components/CountDown/CountDown';
 
 const clockIcon = <FontAwesomeIcon icon={faClock} />
 
-export default function TestShapes() {
+export default function TestShapes({handleTimerEnd}) {
 
     const [qnumber, setQnumber] = useState(1)
 
@@ -26,7 +27,7 @@ export default function TestShapes() {
                     </Col>
 
                     <Col md={4} className="timer-box dir-ltr-left">
-                        {clockIcon}&nbsp;&nbsp;00:00:00
+                        {clockIcon}&nbsp;&nbsp;<CountDown Seconds={6} OnTimerEnd={handleTimerEnd} />
                     </Col>
 
                 </Row>

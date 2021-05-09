@@ -12,11 +12,17 @@ export default function MivdakPage() {
         setTestNum(1)
     }
 
+    function handleTimerEnd(){
+        alert("timer ended")
+        setTestNum(testNum+1)
+    }
+
+
     const renderTest = () => {   
         if(testNum === null) {
             return <MivdakIntro handleStartTests={handleStartTests} />
         } else if(testNum === 1) {
-            return <TestShapes />
+            return <TestShapes handleTimerEnd={handleTimerEnd} />
         } else if(testNum === 2) {
             return null
         } else if(testNum === 3) {
