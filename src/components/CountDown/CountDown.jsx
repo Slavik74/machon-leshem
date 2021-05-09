@@ -11,7 +11,7 @@ export default function CountDown({Seconds, OnTimerEnd}) {
     };
     React.useEffect(() => {
         id.current = window.setInterval(() => {
-            setTimer((time) => time - 1);
+            setTimer((time) => time - 1);            
         }, 1000);
         return () => clear();
     }, []);

@@ -26,7 +26,7 @@ export default function CategoryFlipper({Title, Sets, Url}) {
                                     </div>
                                     
                                     <ul>
-                                        {Sets.map(set =>(<li>{set}</li>))}
+                                        {Sets.map((set,index) =>(<li key={index}>{set}</li>))}
                                     </ul>
                                 </div>
                             </div>

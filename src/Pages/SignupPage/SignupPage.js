@@ -98,9 +98,9 @@ function SignupPage({activeUser, users, onSignup}) {
 
         <Container className="p-signup">
             <div className="signup-container">
-                <div class="col-sm-4 signup-vertical-sep"></div>
-                <div class="col-sm-4 signup-vertical-sep-text">כניסה ללקוחות</div>
-                <div class="col-sm-4 signup-vertical-sep"></div>
+                <div className="col-sm-4 signup-vertical-sep"></div>
+                <div className="col-sm-4 signup-vertical-sep-text">כניסה ללקוחות</div>
+                <div className="col-sm-4 signup-vertical-sep"></div>
                 {userExist ? <Alert variant="danger">משתמש כבר קיים!</Alert> : null}
                 <Form onSubmit={signup}>
                     <Form.Group controlId="formBasicEmail">

@@ -80,9 +80,9 @@ function LoginPage({ activeUser, users, onLogin }) {
 
         <Container className="p-login">
             <div className="login-container">
-                <div class="col-sm-4 signup-vertical-sep"></div>
-                <div class="col-sm-4 signup-vertical-sep-text">כניסה ללקוחות</div>
-                <div class="col-sm-4 signup-vertical-sep"></div>
+                <div className="col-sm-4 signup-vertical-sep"></div>
+                <div className="col-sm-4 signup-vertical-sep-text">כניסה ללקוחות</div>
+                <div className="col-sm-4 signup-vertical-sep"></div>
                 {showInvalidLogin ? <Alert variant="danger">שגיאה בהזנת הנתונים</Alert> : null}
                 <Form onSubmit={login}>
                     <Form.Group controlId="formBasicEmail">

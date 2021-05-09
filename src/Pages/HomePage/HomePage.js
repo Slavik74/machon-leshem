@@ -34,8 +34,8 @@ function HomePage(props) {
                 <HomeCarousel />
 
                 <div className="trust-section">
-                    <div class="uppertext">1,000,000</div>
-                    <div class="lowertext">ויותר נבחנים סומכים על מכון לשם</div>
+                    <div className="uppertext">1,000,000</div>
+                    <div className="lowertext">ויותר נבחנים סומכים על מכון לשם</div>
                 </div>
 
                 <div className="row job-elements-container">

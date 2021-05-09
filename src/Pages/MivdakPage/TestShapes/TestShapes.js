@@ -9,7 +9,7 @@ import CountDown from './../../../components/CountDown/CountDown';
 
 const clockIcon = <FontAwesomeIcon icon={faClock} />
 
-export default function TestShapes({handleTimerEnd}) {
+export default function TestShapes({testsData, handleTimerEnd}) {
 
     const [qnumber, setQnumber] = useState(1)
 
@@ -19,7 +19,7 @@ export default function TestShapes({handleTimerEnd}) {
             <div className="header">
                 <Row>
                     <Col md={4} className="qnumber-box">
-                        שאלה {qnumber} מתוך 8
+                        שאלה {qnumber} מתוך {testsData.length}
                     </Col>
 
                     <Col md={4} className="description-box">
@@ -27,7 +27,7 @@ export default function TestShapes({handleTimerEnd}) {
                     </Col>
 
                     <Col md={4} className="timer-box dir-ltr-left">
-                        {clockIcon}&nbsp;&nbsp;<CountDown Seconds={6} OnTimerEnd={handleTimerEnd} />
+                        {clockIcon}&nbsp;&nbsp;<CountDown Seconds={60} OnTimerEnd={handleTimerEnd} />
                     </Col>
 
                 </Row>

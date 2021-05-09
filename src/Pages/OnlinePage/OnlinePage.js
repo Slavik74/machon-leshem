@@ -39,7 +39,7 @@ export default function OnlinePage({activeUser}) {
                     <h2>העלו את סיכויי ההצלחה שלכם בעזרת ערכות התרגול אונליין שלנו!</h2>
                 </div>
 
-                <div class="row boxes-wrapper">
+                <div className="row boxes-wrapper">
                 {
                     categories.map(box => (box))
                 }
