@@ -12,14 +12,22 @@ const clockIcon = <FontAwesomeIcon icon={faClock} />
 export default function TestShapes({testsData, handleTimerEnd}) {
     
     const [qnumber, setQnumber] = useState(1)
+    const [answersToggle, setAnswersToggle] = useState(null)
 
     if (testsData[qnumber-1]===undefined) return null;
 
+    //Toggle selected answer for answer options
+    const handleClick = event => {
+        setAnswersToggle(event.target.id);
+    };
 
     const testTime = Number(testsData[qnumber-1].Time)*60;
     const answers = []
     for (var i = 1; i <= Number(testsData[qnumber-1].ANSWER_COUNT); i++) {
-        answers.push(<Button key={i} variant="answer" block>תשובה אפשרית {i}</Button>);
+        answers.push(
+            <Col key={'col'+i} lg={6}>
+                <div id={'answer'+i} className={`answer ${answersToggle === 'answer'+i ? 'select' : ''}`}  key={'answer'+i} 
+                    onClick={handleClick}>תשובה אפשרית {i}</div></Col>);
     }
 
     return (
@@ -50,7 +58,9 @@ export default function TestShapes({testsData, handleTimerEnd}) {
                     </Col>
 
                     <Col md={6} className="answers-box">
-                        {answers}
+                        <Row>
+                            {answers}
+                        </Row>
                     </Col>
 
                 </Row>
