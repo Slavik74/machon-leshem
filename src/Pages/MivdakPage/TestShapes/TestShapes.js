@@ -22,11 +22,17 @@ export default function TestShapes({testsData, handleTestFinished}) {
     };
 
 
+    const handlePrevQuestion = ()=>{        
+        setQnumber(qnumber-1)
+        setAnswersToggle(null);
+    }
+
     const handleNextQuestion = () => {
         if (qnumber>=total_questions)
             handleTestFinished();
 
-        setQnumber(qnumber+1);        
+        setQnumber(qnumber+1);    
+        setAnswersToggle(null);    
     };
 
     const testTime = Number(testsData[qnumber-1].Time)*60;
@@ -41,7 +47,7 @@ export default function TestShapes({testsData, handleTestFinished}) {
     for (var i = 1; i <= total_questions; i++) {
         answers_to_select.push(
             <Col key={'col'+i} lg={6}>
-                <div id={'answer'+i} className={`answer ${answersToggle === 'answer'+i ? 'select' : ''}`}  key={'answer'+i} 
+                <div key={'answer'+i} id={'answer'+i} className={`answer ${answersToggle === 'answer'+i ? 'select' : ''}`}
                     onClick={handleAnswerSelect}>תשובה אפשרית {i}</div></Col>);
     }
 
@@ -74,8 +80,7 @@ export default function TestShapes({testsData, handleTestFinished}) {
                         <img className="question-img" src={require(`./TestImages/${testsData[qnumber-1].QUES_PIC1}.gif`).default} />
                         <br /><br />
                         <div>תשובות אפשריות:</div>
-                        <img className="answers-img" src={require(`./TestImages/${testsData[qnumber-1].QUES_PIC2}.gif`).default} />
-                        
+                        <img className="answers-img" src={require(`./TestImages/${testsData[qnumber-1].QUES_PIC2}.gif`).default} />                        
                     </Col>
 
                     <Col md={6} className="answers-box">
@@ -92,7 +97,7 @@ export default function TestShapes({testsData, handleTestFinished}) {
                 <div className="buttons">
                     {qnumber>1?
                         <Button variant="flat-red" size="xxl"
-                            onClick={()=>setQnumber(qnumber-1)}>לשאלה הקודמת</Button>:
+                            onClick={handlePrevQuestion}>לשאלה הקודמת</Button>:
                             null
                     }
 
