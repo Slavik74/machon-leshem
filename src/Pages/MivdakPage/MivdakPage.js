@@ -23,11 +23,8 @@ export default function MivdakPage() {
 
 
     useEffect(() => {
-        setTest_current(()=>{
-            console.log(testNum);
-            const filtered_tests= tests.filter(test => Number(test.TEST_NUM) === testNum);
-            setTest_current(filtered_tests)
-        })
+        const filtered_tests= testNum!=null && tests.filter(test => Number(test.TEST_NUM) === testNum);
+        setTest_current(filtered_tests)
     }, [testNum])
 
 
@@ -35,7 +32,7 @@ export default function MivdakPage() {
         if(testNum === null) {
             return <MivdakIntro handleStartTests={handleStartTests} />
         } else if(testNum === 1) {
-            return <TestShapes testsData={test_current} handleTimerEnd={handleTimerEnd} />
+            return test_current && <TestShapes testsData={test_current} handleTestFinished={handleTimerEnd} />
         } else if(testNum === 2) {
             return null
         } else if(testNum === 3) {
