@@ -3,7 +3,7 @@ import { Col, Row, Container, Button } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
-import './TestShapes.css'
+
 import { useState } from 'react';
 import useCountDown from './../../../hook/useCountDown';
 import { formatTime } from '../../../Utils';
@@ -53,7 +53,7 @@ export default function TestShapes({testsData, handleTestFinished}) {
 
     return (
         <>
-        <Container className="c-testshapes">
+        <Container className="c-tests">
             <Row className="header">
                     <Col md={2} className="qnumber-box">
                         שאלה {qnumber} מתוך {testsData.length}
