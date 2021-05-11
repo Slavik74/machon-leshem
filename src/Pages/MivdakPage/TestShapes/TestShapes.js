@@ -7,6 +7,7 @@ import './TestShapes.css'
 import { useState } from 'react';
 import useCountDown from './../../../hook/useCountDown';
 import { formatTime } from '../../../Utils';
+import StartTestModal from './../../../components/StartTestModal/StartTestModal';
 
 const clockIcon = <FontAwesomeIcon icon={faClock} />
 
@@ -44,11 +45,15 @@ export default function TestShapes({testsData, handleTestFinished}) {
                     onClick={handleAnswerSelect}>תשובה אפשרית {i}</div></Col>);
     }
 
+
+    const TestTitle = "המבחן הראשון הוא מבחן צורות"
+    const TestDescription = `בכל אחת מהשאלות ${total_questions} צורות,  כאשר אחת מהן חסרה. ${"\n"}`+
+                            `עליך למצוא מהי הצורה החסרה מתוך התשובות האפשריות הנתונות.${"\n"}${"\n"}`+
+                            `הזמן שמוקצב למבחן הוא ${testTime/60} דקות`
+
     return (
+        <>
         <Container className="c-testshapes">
-
-<button onClick={handleStart}>Start</button>
-
             <Row className="header">
                     <Col md={2} className="qnumber-box">
                         שאלה {qnumber} מתוך {testsData.length}
@@ -97,5 +102,9 @@ export default function TestShapes({testsData, handleTestFinished}) {
             </div>
 
         </Container>
+
+        <StartTestModal Title={TestTitle} Text={TestDescription} handleStart={handleStart} />
+        </>
+        
     )
 }

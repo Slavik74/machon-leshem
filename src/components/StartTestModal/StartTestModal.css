@@ -1,0 +1,8 @@
+.c-modal .modalfooter {
+    display: flex;
+    justify-content: center;
+}
+
+.c-modal{
+    white-space: pre-wrap; /* break line when '/n' in string */
+}
