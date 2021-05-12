@@ -4,7 +4,7 @@ import { Col, Row, Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useCountDown from './../../../hook/useCountDown';
 import { formatTime } from '../../../Utils';
 import StartTestModal from './../../../components/StartTestModal/StartTestModal';
@@ -15,42 +15,60 @@ export default function TestShapes({testsData, handleTestFinished}) {
     
     const [qnumber, setQnumber] = useState(1)
     const [answersToggle, setAnswersToggle] = useState(null)
+    const [qAnswer, setQAnswer] = useState(null)
+    const [isAnswerCorrect, setIsAnswerCorrect] = useState(null)
 
     //Toggle selected answer for answer options
     const handleAnswerSelect = event => {
         setAnswersToggle(event.target.id);
+        const strAnswer = event.target.id
+        setQAnswer(strAnswer.slice(6))  //Remove the string 'answer' from id to get the number of the answer
     };
+
+    useEffect(() => {
+        setIsAnswerCorrect(!!qAnswer && Number(qAnswer)===Number(testsData[qnumber-1].TRUE_Answer)? 1:0)
+    }, [qAnswer])
+
+    useEffect(() => {
+        setQAnswer(null)
+        setAnswersToggle(null);        
+    }, [qnumber])
 
 
     const handlePrevQuestion = ()=>{        
         setQnumber(qnumber-1)
-        setAnswersToggle(null);
     }
 
     const handleNextQuestion = () => {
-        if (qnumber>=total_questions)
-            handleTestFinished();
+        setQnumber(qnumber+1);        
+        //test_results[1][qnumber-1]=isAnswerCorrect
 
-        setQnumber(qnumber+1);    
-        setAnswersToggle(null);    
+        let copy = [...test_results];
+        copy[0][qnumber-1] = +qnumber;
+        copy[1][qnumber-1] = +isAnswerCorrect;
+        setTest_results(copy);
+
+
+        if (qnumber>=total_questions)
+            handleTestFinished(test_results);
     };
 
     const testTime = Number(testsData[qnumber-1].Time)*60;
     const { timer, isTimerEnd, handleStart } = useCountDown(testTime)
-
-    if (isTimerEnd)
-        handleTestFinished();
-
     const answers_to_select = []
     const total_questions = testsData.length;
+
+    const [test_results, setTest_results] = useState(Array.from({length: 2},()=> Array.from({length: total_questions}, () => null)));
+
+    if (isTimerEnd)
+        handleTestFinished(test_results);
 
     for (var i = 1; i <= total_questions; i++) {
         answers_to_select.push(
             <Col key={'col'+i} lg={6}>
-                <div key={'answer'+i} id={'answer'+i} className={`answer ${answersToggle === 'answer'+i ? 'select' : ''}`}
+                <div key={'answer'+i} id={'answer'+i} className={`answer ${answersToggle === 'answer'+i ? 'select' : null}`}
                     onClick={handleAnswerSelect}>תשובה אפשרית {i}</div></Col>);
     }
-
 
     const TestTitle = "המבחן הראשון הוא מבחן צורות"
     const TestDescription = `בכל אחת מהשאלות ${total_questions} צורות,  כאשר אחת מהן חסרה. ${"\n"}`+

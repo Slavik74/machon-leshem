@@ -24,7 +24,6 @@ export default function StartTestModal({Title, Text, handleStart}) {
                 onHide={handleClose}
                 backdrop="static"
                 keyboard={false}
-                dismissible={false}
                 size="md">
                 <Modal.Header>
                     <Modal.Title>{Title}</Modal.Title>
