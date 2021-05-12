@@ -5,12 +5,11 @@ import MivdakIntro from './MivdakIntro/MivdakIntro';
 import TestShapes from './TestShapes/TestShapes';
 import testsJSON from './../../data/Mivdak.json'
 import MivdakModel from './../../model/MivdakModel';
+import TestLogic from './TestLogic/TestLogic';
 
 export default function MivdakPage() {
 
-    const [test_results1, SetTest_results1] = useState([],[])
-    const [test_results2, SetTest_results2] = useState([],[])
-    const [test_results3, SetTest_results3] = useState([],[])
+    const [test_results, SetTest_results] = useState([])
 
     const tests = testsJSON.map(plainTest => new MivdakModel(plainTest));
     const [testNum, setTestNum] = useState(null)
@@ -20,11 +19,17 @@ export default function MivdakPage() {
         setTestNum(1)
     }
 
-    function handleTimerEnd(test_results1){
-        SetTest_results1(...test_results1)
+
+    function handleTimerEnd(res){
+        test_results.push(...res)
+//        if (testNum===1)
+//            SetTest_results1(...test_results)
+//        if (testNum===2)
+//            SetTest_results2(...test_results)
+//        if (testNum===3)
+//            SetTest_results3(...test_results)
         setTestNum(testNum+1)
     }
-
 
     useEffect(() => {
         const filtered_tests= testNum!=null && tests.filter(test => Number(test.TEST_NUM) === testNum);
@@ -38,7 +43,7 @@ export default function MivdakPage() {
         } else if(testNum === 1) {
             return test_current && <TestShapes testsData={test_current} handleTestFinished={handleTimerEnd} />
         } else if(testNum === 2) {
-            return null
+            return test_current && <TestLogic testsData={test_current} handleTestFinished={handleTimerEnd} />
         } else if(testNum === 3) {
             return null
         } else {
