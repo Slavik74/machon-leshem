@@ -41,13 +41,11 @@ export default function TestShapes({testsData, handleTestFinished}) {
 
     const handleNextQuestion = () => {
         setQnumber(qnumber+1);        
-        //test_results[1][qnumber-1]=isAnswerCorrect
 
         let copy = [...test_results];
         copy[0][qnumber-1] = +qnumber;
         copy[1][qnumber-1] = +isAnswerCorrect;
         setTest_results(copy);
-
 
         if (qnumber>=total_questions)
             handleTestFinished(test_results);
@@ -58,12 +56,13 @@ export default function TestShapes({testsData, handleTestFinished}) {
     const answers_to_select = []
     const total_questions = testsData.length;
 
+    const answers_count = Number(testsData[qnumber-1].ANSWER_COUNT)
     const [test_results, setTest_results] = useState(Array.from({length: 2},()=> Array.from({length: total_questions}, () => null)));
 
     if (isTimerEnd)
         handleTestFinished(test_results);
 
-    for (var i = 1; i <= total_questions; i++) {
+    for (var i = 1; i <= answers_count; i++) {
         answers_to_select.push(
             <Col key={'col'+i} lg={6}>
                 <div key={'answer'+i} id={'answer'+i} className={`answer ${answersToggle === 'answer'+i ? 'select' : null}`}
