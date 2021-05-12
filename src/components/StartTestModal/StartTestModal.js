@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Modal, Button } from 'react-bootstrap';
-import { Redirect, useHistory } from 'react-router';
+import { useHistory } from 'react-router';
 import './StartTestModal.css'
 
 export default function StartTestModal({Title, Text, handleStart}) {

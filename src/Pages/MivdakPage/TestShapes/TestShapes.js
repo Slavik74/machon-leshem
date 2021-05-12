@@ -95,10 +95,10 @@ export default function TestShapes({testsData, handleTestFinished}) {
                 <Row>
                     <Col md={6} className="question-box">
                         <div>שאלה:</div>
-                        <img className="question-img" src={require(`./TestImages/${testsData[qnumber-1].QUES_PIC1}.gif`).default} />
+                        <img className="question-img" src={require(`./TestImages/${testsData[qnumber-1].QUES_PIC1}.gif`).default} alt={qnumber} />
                         <br /><br />
                         <div>תשובות אפשריות:</div>
-                        <img className="answers-img" src={require(`./TestImages/${testsData[qnumber-1].QUES_PIC2}.gif`).default} />                        
+                        <img className="answers-img" src={require(`./TestImages/${testsData[qnumber-1].QUES_PIC2}.gif`).default} alt="" />                        
                     </Col>
 
                     <Col md={6} className="answers-box">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Container, Form, Button } from 'react-bootstrap';
-import { Link, Redirect, useHistory } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './LoginPage.css'
 
 function LoginPage({ activeUser, users, onLogin }) {

@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import { React } from 'react';
 
 const useCountDown = (initialState = 0) => {
     const [timer, setTimer] = useState(initialState)

@@ -8,9 +8,9 @@ import MivdakModel from './../../model/MivdakModel';
 
 export default function MivdakPage() {
 
-    const [test_results1, SetTest_results1] = useState(Array([],[]))
-    const [test_results2, SetTest_results2] = useState(Array([],[]))
-    const [test_results3, SetTest_results3] = useState(Array([],[]))
+    const [test_results1, SetTest_results1] = useState([],[])
+    const [test_results2, SetTest_results2] = useState([],[])
+    const [test_results3, SetTest_results3] = useState([],[])
 
     const tests = testsJSON.map(plainTest => new MivdakModel(plainTest));
     const [testNum, setTestNum] = useState(null)
