@@ -52,6 +52,7 @@ export default function TestLogic({testsData, handleTestFinished}) {
     };
 
     const testTime = Number(testsData[qnumber-1].Time)*60;
+    const testName = testsData[qnumber-1].name;
     const { timer, isTimerEnd, handleStart } = useCountDown(testTime)
     const answers_to_select = []
     const total_questions = testsData.length;
@@ -69,7 +70,7 @@ export default function TestLogic({testsData, handleTestFinished}) {
                     onClick={handleAnswerSelect}>תשובה אפשרית {i}</div></Col>);
     }
 
-    const TestTitle = "המבחן הבא הוא מבחן לוגיקה"
+    const TestTitle = `המבחן הבא הוא מבחן ${testName}`
     const TestDescription = `${testsData[qnumber-1].Hesber} ${"\n"}${"\n"}` +
                             `הזמן שמוקצב למבחן הוא ${testTime/60} דקות ${"\n"}${"\n"}`
 
