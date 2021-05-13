@@ -6,6 +6,7 @@ import TestShapes from './TestShapes/TestShapes';
 import testsJSON from './../../data/Mivdak.json'
 import MivdakModel from './../../model/MivdakModel';
 import TestLogic from './TestLogic/TestLogic';
+import TestsResults from './TestsResults/TestsResults';
 
 export default function MivdakPage() {
 
@@ -47,7 +48,7 @@ useEffect(() => {
         } else if(testNum === 3) {
             return <TestShapes testNum={testNum} testsData={testData3} handleTestFinished={handleTimerEnd} />
         } else {
-            return null
+            return <TestsResults testsResults={test_results} />
         }    
     }
 

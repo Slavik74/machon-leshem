@@ -51,3 +51,11 @@ hr {
 .bold{
   font-weight: bold;
 }
+
+.fore-red{
+  color: rgb(255,0,0)
+}
+
+.fore-green{
+  color: rgb(0, 60, 0)
+}

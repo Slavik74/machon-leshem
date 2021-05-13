@@ -117,6 +117,20 @@
     height: 100px;
 }
 
+.p-mivdak .c-tests .results-table{
+    border: solid 1px rgb(59, 59, 59);
+    border-spacing: 10px;
+}
+
+.p-mivdak .c-tests .results-table th,td{
+    border: solid 1px rgb(60, 60, 60);
+    padding: 5px 10px;
+    border: solid black 1px;
+}
+
+.p-mivdak .c-tests .results-content{
+    padding-top: 20px;
+}
 
 @media screen and (min-width:768px) {
     .p-mivdak .c-tests .content .answers-box{
