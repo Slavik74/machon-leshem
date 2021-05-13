@@ -110,9 +110,16 @@
 
 
 .p-mivdak .c-tests .question-box .question-img{
-    height: 150px;
+    max-height: 150px;
 }
 
 .p-mivdak .c-tests .question-box .answers-img{
     height: 100px;
+}
+
+
+@media screen and (min-width:768px) {
+    .p-mivdak .c-tests .content .answers-box{
+        min-height: 400px;
+    }
 }

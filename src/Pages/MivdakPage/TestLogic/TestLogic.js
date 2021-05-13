@@ -70,7 +70,8 @@ export default function TestLogic({testsData, handleTestFinished}) {
     }
 
     const TestTitle = "המבחן הבא הוא מבחן לוגיקה"
-    const TestDescription = `הזמן שמוקצב למבחן הוא ${testTime/60} דקות ${"\n"}${"\n"}`
+    const TestDescription = `${testsData[qnumber-1].Hesber} ${"\n"}${"\n"}` +
+                            `הזמן שמוקצב למבחן הוא ${testTime/60} דקות ${"\n"}${"\n"}`
 
     return (
         <>

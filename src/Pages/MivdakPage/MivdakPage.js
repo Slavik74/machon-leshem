@@ -13,7 +13,16 @@ export default function MivdakPage() {
 
     const tests = testsJSON.map(plainTest => new MivdakModel(plainTest));
     const [testNum, setTestNum] = useState(null)
-    const [test_current, setTest_current] = useState(null)
+    const [testData1, setTestData1] = useState(null)
+    const [testData2, setTestData2] = useState(null)
+    const [testData3, setTestData3] = useState(null)
+
+
+useEffect(() => {
+    setTestData1(()=> tests.filter(test => Number(test.TEST_NUM) === 1))
+    setTestData2(()=> tests.filter(test => Number(test.TEST_NUM) === 2))
+    setTestData3(()=> tests.filter(test => Number(test.TEST_NUM) === 3))
+}, [testNum])
 
     const handleStartTests = () =>{
         setTestNum(1)
@@ -22,30 +31,21 @@ export default function MivdakPage() {
 
     function handleTimerEnd(res){
         test_results.push(...res)
-//        if (testNum===1)
-//            SetTest_results1(...test_results)
-//        if (testNum===2)
-//            SetTest_results2(...test_results)
-//        if (testNum===3)
-//            SetTest_results3(...test_results)
         setTestNum(testNum+1)
     }
 
-    useEffect(() => {
-        const filtered_tests= testNum!=null && tests.filter(test => Number(test.TEST_NUM) === testNum);
-        setTest_current(filtered_tests)
-    }, [testNum])
 
 
     const renderTest = () => {   
+        
         if(testNum === null) {
             return <MivdakIntro handleStartTests={handleStartTests} />
         } else if(testNum === 1) {
-            return test_current && <TestShapes testsData={test_current} handleTestFinished={handleTimerEnd} />
+            return <TestShapes testNum={testNum} testsData={testData1} handleTestFinished={handleTimerEnd} />
         } else if(testNum === 2) {
-            return test_current && <TestLogic testsData={test_current} handleTestFinished={handleTimerEnd} />
+            return <TestLogic testNum={testNum} testsData={testData2} handleTestFinished={handleTimerEnd} />
         } else if(testNum === 3) {
-            return null
+            return <TestShapes testNum={testNum} testsData={testData3} handleTestFinished={handleTimerEnd} />
         } else {
             return null
         }    

@@ -11,7 +11,7 @@ import StartTestModal from './../../../components/StartTestModal/StartTestModal'
 
 const clockIcon = <FontAwesomeIcon icon={faClock} />
 
-export default function TestShapes({testsData, handleTestFinished}) {
+export default function TestShapes({testNum, testsData, handleTestFinished}) {
     
     const [qnumber, setQnumber] = useState(1)
     const [answersToggle, setAnswersToggle] = useState(null)
@@ -24,9 +24,16 @@ export default function TestShapes({testsData, handleTestFinished}) {
         const strAnswer = event.target.id
         setQAnswer(strAnswer.slice(6))  //Remove the string 'answer' from id to get the number of the answer
     };
-
+    
     useEffect(() => {
-        setIsAnswerCorrect(!!qAnswer && Number(qAnswer)===Number(testsData[qnumber-1].TRUE_Answer)? 1:0)
+        return () => {
+          console.log("cleaned up");
+        };
+      }, []);
+    
+    useEffect(() => {
+        if (testsData)
+            setIsAnswerCorrect(!!qAnswer && Number(qAnswer)===Number(testsData[qnumber-1].TRUE_Answer)? 1:0)
     }, [qAnswer])
 
     useEffect(() => {
@@ -52,6 +59,7 @@ export default function TestShapes({testsData, handleTestFinished}) {
     };
 
     const testTime = Number(testsData[qnumber-1].Time)*60;
+    const testName = testsData[qnumber-1].name;
     const { timer, isTimerEnd, handleStart } = useCountDown(testTime)
     const answers_to_select = []
     const total_questions = testsData.length;
@@ -64,15 +72,15 @@ export default function TestShapes({testsData, handleTestFinished}) {
 
     for (var i = 1; i <= answers_count; i++) {
         answers_to_select.push(
-            <Col key={'col'+i} lg={6}>
+            <Col key={'col'+i} lg={answers_count>4?6:12}>
                 <div key={'answer'+i} id={'answer'+i} className={`answer ${answersToggle === 'answer'+i ? 'select' : null}`}
                     onClick={handleAnswerSelect}>תשובה אפשרית {i}</div></Col>);
     }
 
-    const TestTitle = "המבחן הראשון הוא מבחן צורות"
-    const TestDescription = `בכל אחת מהשאלות ${total_questions} צורות,  כאשר אחת מהן חסרה. ${"\n"}`+
-                            `עליך למצוא מהי הצורה החסרה מתוך התשובות האפשריות הנתונות.${"\n"}${"\n"}`+
+    const TestTitle = `המבחן ${testNum>1?"הבא":"הראשון"} הוא מבחן ${testName}`
+    const TestDescription = `${testsData[qnumber-1].Hesber} ${"\n"}${"\n"}` +
                             `הזמן שמוקצב למבחן הוא ${testTime/60} דקות`
+
 
     return (
         <>
@@ -81,7 +89,6 @@ export default function TestShapes({testsData, handleTestFinished}) {
                     <Col md={2} className="qnumber-box">
                         שאלה {qnumber} מתוך {testsData.length}
                     </Col>
-
                     <Col md={8} className="description-box">
                             {testsData[0]?testsData[0].Hesber:""}
                     </Col>
@@ -92,13 +99,27 @@ export default function TestShapes({testsData, handleTestFinished}) {
 
             <div className="content">
                 <Row>
-                    <Col md={6} className="question-box">
-                        <div>שאלה:</div>
-                        <img className="question-img" src={require(`./TestImages/${testsData[qnumber-1].QUES_PIC1}.gif`).default} alt={qnumber} />
-                        <br /><br />
-                        <div>תשובות אפשריות:</div>
-                        <img className="answers-img" src={require(`./TestImages/${testsData[qnumber-1].QUES_PIC2}.gif`).default} alt="" />                        
-                    </Col>
+                    {testNum===2?
+                        <Col md={6} className="question-box">
+                            <div>שאלה:</div>
+                            <div className="question">{testsData[qnumber-1].QUESTION}</div>
+                            <br /><br />
+                            <div>תשובות אפשריות:</div>
+                            <ol>
+                                <li>{testsData[qnumber-1].ANSWER1}</li>
+                                <li>{testsData[qnumber-1].ANSWER2}</li>
+                                <li>{testsData[qnumber-1].ANSWER3}</li>
+                                <li>{testsData[qnumber-1].ANSWER4}</li>
+                            </ol>                        
+                        </Col>:                
+                        <Col md={6} className="question-box">
+                            <div>שאלה:</div>
+                            <img className="question-img" src={require(`./TestImages/${testNum}/${testsData[qnumber-1].QUES_PIC1}.gif`).default} alt={qnumber} />
+                            <br /><br />
+                            <div>תשובות אפשריות:</div>
+                            <img className="answers-img" src={require(`./TestImages/${testNum}/${testsData[qnumber-1].QUES_PIC2}.gif`).default} alt="" />                        
+                        </Col>
+                    }
 
                     <Col md={6} className="answers-box">
                         <Row>
