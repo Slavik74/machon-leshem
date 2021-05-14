@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Button } from 'react-bootstrap';
 
 
 export function ShowChances({TestNum, trues}) {
@@ -38,6 +38,12 @@ export function ShowChances({TestNum, trues}) {
 
 export default function TestsResults({testsResults}) {    
     let sum = new Array(3).fill(0);
+
+
+    const handleShowContact = ()=>{
+            alert("handleShowContact")
+    }
+
     return (
         <div>
 
@@ -46,67 +52,75 @@ export default function TestsResults({testsResults}) {
                     התוצאות שהשגת במבדק:
                 </Row>
 
-                <div className="results-content">   
+                <Row className="results-row">
+                    <Col md={6} className="results-content">
+                        <div>תוצאות מבחן צורות:</div>
+                        <table className="results-table">
+                            <tr>
+                                {testsResults[0].map((subItems) => {
+                                    return <th> {subItems} </th>;
+                                })}
+                            </tr>
+                            <tr>
+                                {
+                                testsResults[1].map((subItems) => {
+                                    const color = subItems === 1? 'fore-green': 'fore-red'
+                                    sum[0] += subItems
+                                    return <td className={color}> {subItems} </td>;
+                                })                            
+                                }
+                            </tr>
+                        </table>                                        
+                        <div>במבחן זה הצגת ציון {sum[0]}</div>
+                        <ShowChances TestNum={1} trues={sum[0]} />
 
-                    <div>תוצאות מבחן צורות:</div>
-                    <table className="results-table">
-                        <tr>
-                            {testsResults[0].map((subItems) => {
-                                return <th> {subItems} </th>;
-                            })}
-                        </tr>
-                        <tr>
-                            {
-                            testsResults[1].map((subItems) => {
-                                const color = subItems === 1? 'fore-green': 'fore-red'
-                                sum[0] += subItems
-                                return <td className={color}> {subItems} </td>;
-                            })                            
-                            }
-                        </tr>
-                    </table>                                        
-                    <div>במבחן זה הצגת ציון {sum[0]}</div>
-                    <ShowChances TestNum={1} trues={sum[0]} />
+                        <hr/>
 
-                    <hr/>
+                        <div>תוצאות מבחן לוגיקה:</div>
+                        <table className="results-table">
+                            <tr>
+                                {testsResults[2].map((subItems, sIndex) => {
+                                    return <th> {subItems} </th>;
+                                })}
+                            </tr>
+                            <tr>
+                                {testsResults[3].map((subItems, sIndex) => {
+                                    const color = subItems === 1? 'fore-green': 'fore-red';
+                                    sum[1] += subItems
+                                    return <td className={color}> {subItems} </td>;                                
+                                })}
+                            </tr>
+                        </table> 
+                        <div>במבחן זה הצגת ציון {sum[1]}</div>
+                        <ShowChances TestNum={2} trues={sum[0]} />
+                        <hr/>
 
-                    <div>תוצאות מבחן לוגיקה:</div>
-                    <table className="results-table">
-                        <tr>
-                            {testsResults[2].map((subItems, sIndex) => {
-                                return <th> {subItems} </th>;
-                            })}
-                        </tr>
-                        <tr>
-                            {testsResults[3].map((subItems, sIndex) => {
-                                const color = subItems === 1? 'fore-green': 'fore-red';
-                                sum[1] += subItems
-                                return <td className={color}> {subItems} </td>;                                
-                            })}
-                        </tr>
-                    </table> 
-                    <div>במבחן זה הצגת ציון {sum[1]}</div>
-                    <ShowChances TestNum={2} trues={sum[0]} />
-                    <hr/>
-
-                    <div>תוצאות מבחן סדרות:</div>
-                    <table className="results-table">
-                        <tr>
-                            {testsResults[4].map((subItems, sIndex) => {
-                                return <th> {subItems} </th>;
-                            })}
-                        </tr>
-                        <tr>
-                            {testsResults[5].map((subItems, sIndex) => {
-                                const color = subItems === 1? 'fore-green': 'fore-red'
-                                sum[2] += subItems
-                                return <td className={color}> {subItems} </td>;
-                            })}
-                        </tr>
-                    </table> 
-                    <div>במבחן זה הצגת ציון {sum[2]}</div>
-                    <ShowChances TestNum={3} trues={sum[0]} />
-                </div>
+                        <div>תוצאות מבחן סדרות:</div>
+                        <table className="results-table">
+                            <tr>
+                                {testsResults[4].map((subItems, sIndex) => {
+                                    return <th> {subItems} </th>;
+                                })}
+                            </tr>
+                            <tr>
+                                {testsResults[5].map((subItems, sIndex) => {
+                                    const color = subItems === 1? 'fore-green': 'fore-red'
+                                    sum[2] += subItems
+                                    return <td className={color}> {subItems} </td>;
+                                })}
+                            </tr>
+                        </table> 
+                        <div>במבחן זה הצגת ציון {sum[2]}</div>
+                        <ShowChances TestNum={3} trues={sum[0]} />
+                    </Col>
+                    <Col md={6} className="results-contact h3">
+                        <div>
+                            השאירו פרטים&nbsp;&nbsp;
+                            <Button className="contact-btn" variant="flat-red" size="lg" onClick={handleShowContact}>צרו קשר</Button>
+                        </div>
+                        <div>או התקשרו 03-5336177</div>
+                    </Col>
+                </Row>
             </Container>
         </div>
     )

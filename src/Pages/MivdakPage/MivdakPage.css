@@ -128,12 +128,34 @@
     border: solid black 1px;
 }
 
-.p-mivdak .c-tests .results-content{
+.p-mivdak .c-tests .results-Row{
+    display: flex;
     padding-top: 20px;
+}
+
+.p-mivdak .c-tests .results-content{
+    padding: 10px;
+}
+.p-mivdak .c-tests .results-contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.p-mivdak .c-tests .contact-btn{
+    padding: 0 20px;
 }
 
 @media screen and (min-width:768px) {
     .p-mivdak .c-tests .content .answers-box{
         min-height: 400px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .p-mivdak .c-tests .results-contact{
+        border-top: 1px solid rgb(204,204,204);
     }
 }
