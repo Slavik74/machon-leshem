@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Form, Button, Modal, Row, Col } from 'react-bootstrap';
 import './Contact.css';
 import emailjs from 'emailjs-com';
@@ -35,6 +35,13 @@ export default function Contact({handleHide}) {
 
     }
 
+
+    useEffect(() => {
+        //On first render set default values
+        setField('areaCode', '050')
+        setField('moreDetails','')
+    }, [])
+
       //sing these cases, we're going to create a function that checks for them, 
       //  then constructs an errors object with error messages:
     const findFormErrors = () => {
@@ -62,7 +69,6 @@ export default function Contact({handleHide}) {
 
     function sendEmail(form){
         const { fullname, email, areaCode, phone, testName, moreDetails } = form
-        
          emailjs.send("service_9kijkim","template_9yv4meo",{
             full_name: fullname,
             email: email,
@@ -87,9 +93,7 @@ export default function Contact({handleHide}) {
         if ( Object.keys(newErrors).length > 0 ) {  // We got errors!
             setErrors(newErrors)
         } else {                                
-
             sendEmail(form)
-
         }
 
     }
@@ -101,8 +105,7 @@ export default function Contact({handleHide}) {
             onHide={handleClose}
             backdrop="static"
             keyboard={true}
-            size="lg"
-        >
+            size="lg">
 
             <Modal.Header closeButton>
                 <Modal.Title><div className="modal-title">השאירו פרטים או התקשרו 03-5336177</div></Modal.Title>
@@ -145,7 +148,7 @@ export default function Contact({handleHide}) {
                                         <Form.Label>טלפון</Form.Label>
                                         <div className="phone-group">
                                             <div className="phone-box">
-                                                <Form.Control type="tel"
+                                                <Form.Control type="tel"  className="dir-ltr-left"
                                                     onChange={e => setField('phone', e.target.value)} 
                                                     isInvalid={ !!errors.phone } 
                                                 />
@@ -178,15 +181,16 @@ export default function Contact({handleHide}) {
                                     </Form.Group>
                                 </Col>
                                 <Col lg={6}>
-                                    <Form.Group controlId="formBasicTestname">
+                                    <Form.Group controlId="formBasicTestname">                                       
                                         <Form.Label>לאיזה מבחן אתם מתכוננים?</Form.Label>
                                         <Form.Control type="text" 
                                             onChange={e => setField('testName', e.target.value)} 
-                                            isInvalid={ !!errors.testName }
+                                            isInvalid={ !!errors.testName } 
                                         />
                                         <Form.Control.Feedback type='invalid'>
                                             { errors.testName }
                                         </Form.Control.Feedback>
+
                                     </Form.Group>
 
                                     <Form.Group controlId="formBasicMoreDetails">
