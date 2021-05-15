@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Nav, Navbar } from 'react-bootstrap'
+import Contact from '../Contact/Contact';
 import './MainNavbar.css'
 import logo from './../../assets/images/clip-art-green-checkmark.png'
 
 export default function MainNavbar({activeUser, onLogout}) {
+
+    const [showContact, setShowContact] = useState(false);
+
+    const handleShowContact = (e) => {
+        e.preventDefault();
+        setShowContact(true)
+    }
+
+    const handleHideContact = (e) => {
+        setShowContact(false)
+    }
+
+
     return (
+        <>
+        {showContact?<Contact handleHide={handleHideContact} />:null}
+
         <div className="c-mainnavbar">
             <Navbar expand="md" className="navbar shadow">
             <Navbar.Toggle className="ml-auto toggle" aria-controls="basic-navbar-nav" />
@@ -27,12 +44,13 @@ export default function MainNavbar({activeUser, onLogout}) {
                             <Nav.Link className="nav-links" href="#/login">כניסה</Nav.Link>    
                             </>
                     }
-                    <Nav.Link className="nav-links" href="#/contact">צור קשר</Nav.Link>
+                    <Nav.Link className="nav-links" href="#" onClick={handleShowContact}>צור קשר</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Navbar>    
 
         </div>
+        </>
 
     )
 }

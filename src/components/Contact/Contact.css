@@ -1,13 +1,9 @@
 .p-contact .contact-container {
-    max-width: 500px;
-    margin: 0 auto;
+    margin: 10;
     border: 1px solid rgba(0, 0, 0, .12);
     background-color: rgba(0, 255, 0, 0.03);
     background: linear-gradient( rgba(0, 255, 0, 0.04),  rgba(0, 255, 0, 0.02) 25%);
-    padding: 45px 45px;
-    margin-top: 20px;
-    margin-bottom: 50px;
-}
+    padding: 25px 25px;}
 
 .p-contact .contact-vertical-sep-text {
     display: inline-block;    
@@ -17,25 +13,36 @@
     margin-bottom: 10px;    
 }
 
-.p-contact .contact-vertical-sep {
-    display: inline-block;
-    border-bottom: 1px solid #c7c7c7;
-    width: 30%;
+.p-contact .area-code{
+    max-width: max-content;
 }
 
-
-@media screen and (max-width: 580px){
-    .p-contact .contact-vertical-sep {
-        display: none;
-    }
-    .p-contact .contact-vertical-sep-text {
-        white-space: nowrap;
-    }
-
-    .p-contact .signupContainer {
-        padding: 0 5px;
-        margin-top: 3px;
-        margin: 3px;
-    }
-    
+.p-contact .phone-group{
+    display: flex;
 }
+
+.p-contact .phone-box{
+    display: flex;
+    flex-direction: column;    
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: rgb(40, 167, 69);
+    color: #fff;
+
+}
+
+button.close {
+background-color: blueviolet;
+    float: right !important;
+    font-size: 34px;
+    color: #fff;      
+}
+
+button.close:hover {
+    color: #fff;
+    opacity: 1 !important;   
+}
+

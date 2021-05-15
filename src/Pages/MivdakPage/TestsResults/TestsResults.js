@@ -1,5 +1,7 @@
 import React from 'react'
+import { useState } from 'react';
 import { Col, Container, Row, Button } from 'react-bootstrap';
+import Contact from './../../../components/Contact/Contact';
 
 
 export function ShowChances({TestNum, trues}) {
@@ -37,15 +39,20 @@ export function ShowChances({TestNum, trues}) {
 
 
 export default function TestsResults({testsResults}) {    
+
+
+    const [showContact, setShowContact] = useState(false);
+
     let sum = new Array(3).fill(0);
 
 
-    const handleShowContact = ()=>{
-            alert("handleShowContact")
+    const handleShowContact = () => {
+        setShowContact(true)
     }
 
     return (
         <div>
+            {showContact && (<Contact />)}
 
             <Container className="c-tests">
                 <Row className="header">
