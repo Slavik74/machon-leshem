@@ -24,13 +24,7 @@ export default function TestShapes({testNum, testsData, handleTestFinished}) {
         const strAnswer = event.target.id
         setQAnswer(strAnswer.slice(6))  //Remove the string 'answer' from id to get the number of the answer
     };
-    
-    useEffect(() => {
-        return () => {
-          console.log("cleaned up");
-        };
-      }, []);
-    
+        
     useEffect(() => {
         if (testsData)
             setIsAnswerCorrect(!!qAnswer && Number(qAnswer)===Number(testsData[qnumber-1].TRUE_Answer)? 1:0)
