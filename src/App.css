@@ -69,3 +69,11 @@ hr {
   background-color: rgb(210, 67, 107);
   color: white;
 }
+
+body.modal-open > :not(.modal) {
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(5px);
+}
