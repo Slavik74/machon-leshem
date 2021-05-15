@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Form, Button, Modal, Row, Col } from 'react-bootstrap';
 import './Contact.css';
 import emailjs from 'emailjs-com';
+import configData from "./../../../package.json";       //to hide TMDB API keys
 
 export default function Contact({handleHide}) {
 
@@ -69,16 +70,18 @@ export default function Contact({handleHide}) {
 
     function sendEmail(form){
         const { fullname, email, areaCode, phone, testName, moreDetails } = form
+        const toEmail = configData.send_email //get email address from config file
+
          emailjs.send("service_9kijkim","template_9yv4meo",{
             full_name: fullname,
             email: email,
             phone_number: `${areaCode}-${phone}`,
             test_name: testName,
             more_details: moreDetails,
-            to_email: "slavik.works@gmail.com",
+            to_email: toEmail//"slavik.works@gmail.com",
             });    
         
-            setContactSent(true);
+        setContactSent(true);
 
     }
 
