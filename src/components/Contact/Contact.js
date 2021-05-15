@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Modal, Row, Col } from 'react-bootstrap';
 import './Contact.css';
+import emailjs from 'emailjs-com';
 
 export default function Contact({handleHide}) {
+
+    const [contactSent, setContactSent] = useState(false);
     const [show, setShow] = useState(true);
+
     const handleClose = () => {
         setShow(false)
         handleHide()
@@ -34,7 +38,7 @@ export default function Contact({handleHide}) {
       //sing these cases, we're going to create a function that checks for them, 
       //  then constructs an errors object with error messages:
     const findFormErrors = () => {
-        const { fullname, email, phone, testName, MoreDetails } = form
+        const { fullname, email, phone, testName } = form
         const newErrors = {}
 
         // full name errors
@@ -50,9 +54,26 @@ export default function Contact({handleHide}) {
 
         // test name errors
         if ( !testName || testName === '' ) newErrors.testName = 'שדה חובה'
-        else if ( testName.length < 4 ) newErrors.testName = 'מינימום 4 תווים'
+        else if ( testName.length < 2 ) newErrors.testName = 'מינימום 2 תווים'
             
         return newErrors
+    }
+
+
+    function sendEmail(form){
+        const { fullname, email, areaCode, phone, testName, moreDetails } = form
+        
+         emailjs.send("service_9kijkim","template_9yv4meo",{
+            full_name: fullname,
+            email: email,
+            phone_number: `${areaCode}-${phone}`,
+            test_name: testName,
+            more_details: moreDetails,
+            to_email: "slavik.works@gmail.com",
+            });    
+        
+            setContactSent(true);
+
     }
 
 
@@ -67,8 +88,7 @@ export default function Contact({handleHide}) {
             setErrors(newErrors)
         } else {                                
 
-            //TODO:
-            //Send email
+            sendEmail(form)
 
         }
 
@@ -91,6 +111,8 @@ export default function Contact({handleHide}) {
 
                 <Container className="p-contact">
                     <div className="contact-container">
+                        {
+                        !contactSent && 
                         <Form onSubmit={contact}>
                             <Row>
                                 <Col lg={6}>
@@ -115,14 +137,14 @@ export default function Contact({handleHide}) {
                                             { errors.email }
                                         </Form.Control.Feedback>
                                         <Form.Text className="text-muted">
-                                        אנו לעולם לא נשתף אותו עם אף גורם אחר
+                                            אנו לעולם לא נשתף אותו עם אף גורם אחר
                                         </Form.Text>
                                     </Form.Group>
 
                                     <Form.Group controlId="formBasicPhone">
                                         <Form.Label>טלפון</Form.Label>
                                         <div className="phone-group">
-                                        <div className="phone-box">
+                                            <div className="phone-box">
                                                 <Form.Control type="tel"
                                                     onChange={e => setField('phone', e.target.value)} 
                                                     isInvalid={ !!errors.phone } 
@@ -132,8 +154,7 @@ export default function Contact({handleHide}) {
                                                 </Form.Control.Feedback>
                                             </div>
                                             <Form.Control as="select" className="area-code"
-                                                onChange={e => setField('areaCode', e.target.value)} 
-                                                isInvalid={ !!errors.areaCode }>
+                                                onChange={e => setField('areaCode', e.target.value)} >
                                                 <option value="050">050</option>
                                                 <option value="051">051</option>
                                                 <option value="052">052</option>
@@ -154,14 +175,13 @@ export default function Contact({handleHide}) {
                                                 <option value="09">09</option>
                                             </Form.Control>
                                         </div>
-
                                     </Form.Group>
                                 </Col>
                                 <Col lg={6}>
                                     <Form.Group controlId="formBasicTestname">
                                         <Form.Label>לאיזה מבחן אתם מתכוננים?</Form.Label>
                                         <Form.Control type="text" 
-                                            onChange={e => setField('Testname', e.target.value)} 
+                                            onChange={e => setField('testName', e.target.value)} 
                                             isInvalid={ !!errors.testName }
                                         />
                                         <Form.Control.Feedback type='invalid'>
@@ -172,7 +192,7 @@ export default function Contact({handleHide}) {
                                     <Form.Group controlId="formBasicMoreDetails">
                                         <Form.Label>פרטים נוספים על המבחן</Form.Label>
                                         <Form.Control as="textarea" rows="3"
-                                            onChange={e => setField('MoreDetails', e.target.value)}
+                                            onChange={e => setField('moreDetails', e.target.value)}
                                         />
                                     </Form.Group>
 
@@ -181,7 +201,19 @@ export default function Contact({handleHide}) {
 
                             <Button variant="success" type="submit" block>שלח/י</Button>
                         </Form>
+                    }
 
+                    {
+                        contactSent &&
+                            <div className="h3 text-center">
+                                <div>תודה על הפנייה אלינו</div>
+                                <div>נציג שלנו יצור איתך קשר בשעות הקרובות</div>
+                                <br />
+                                <br />
+                                <Button variant="flat-red" onClick={handleClose}>סגור</Button>
+                            </div>
+
+                    }
                     </div>
                 </Container>
             </Modal.Body>

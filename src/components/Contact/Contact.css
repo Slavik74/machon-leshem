@@ -35,8 +35,6 @@
 }
 
 button.close {
-background-color: blueviolet;
-    float: right !important;
     font-size: 34px;
     color: #fff;      
 }

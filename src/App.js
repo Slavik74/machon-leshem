@@ -12,6 +12,7 @@ import './App.css';
 import { useState } from 'react';
 import UserModel from './model/UserModel';
 import usersJSON from './data/users.json';
+import { init } from 'emailjs-com';
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
     setActiveUser(newUser) 
     setUsers(users.concat(newUser))
   }
+
+  //emailjs initialization
+  init("user_1Dk0HD2uoGBLJ3voaJ987");
 
   return (
     <>
