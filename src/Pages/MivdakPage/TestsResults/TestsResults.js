@@ -50,9 +50,13 @@ export default function TestsResults({testsResults}) {
         setShowContact(true)
     }
 
+    const handleHideContact = (e) => {
+        setShowContact(false)
+    }
+
     return (
         <div>
-            {showContact && (<Contact />)}
+            {showContact?<Contact handleHide={handleHideContact} />:null}
 
             <Container className="c-tests">
                 <Row className="header">
