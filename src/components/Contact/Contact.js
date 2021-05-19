@@ -103,7 +103,7 @@ export default function Contact({handleHide}) {
 
     return (
 
-        <Modal 
+        <Modal className="p-contact"
             show={show}
             onHide={handleClose}
             backdrop="static"
@@ -115,7 +115,7 @@ export default function Contact({handleHide}) {
             </Modal.Header>
             <Modal.Body>
 
-                <Container className="p-contact">
+                <Container >
                     <div className="contact-container">
                         {
                         !contactSent && 

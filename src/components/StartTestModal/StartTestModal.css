@@ -6,3 +6,9 @@
 .c-modal{
     white-space: pre-wrap; /* break line when '/n' in string */
 }
+
+.modal-header {
+    background-color: rgb(40, 167, 69);
+    color: #fff;
+
+}

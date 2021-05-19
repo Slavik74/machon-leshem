@@ -26,7 +26,7 @@
     flex-direction: column;    
 }
 
-.modal-header {
+.p-contact .modal-header {
     display: flex;
     flex-direction: row-reverse;
     background-color: rgb(40, 167, 69);
@@ -34,12 +34,12 @@
 
 }
 
-button.close {
+.p-contact button.close {
     font-size: 34px;
     color: #fff;      
 }
 
-button.close:hover {
+.p-contact button.close:hover {
     color: #fff;
     opacity: 1 !important;   
 }
