@@ -103,7 +103,7 @@ export default function TestsResults({testsResults}) {
                             </tr>
                         </table> 
                         <div>במבחן זה הצגת ציון {sum[1]}</div>
-                        <ShowChances TestNum={2} trues={sum[0]} />
+                        <ShowChances TestNum={2} trues={sum[1]} />
                         <hr/>
 
                         <div>תוצאות מבחן סדרות:</div>
@@ -122,7 +122,7 @@ export default function TestsResults({testsResults}) {
                             </tr>
                         </table> 
                         <div>במבחן זה הצגת ציון {sum[2]}</div>
-                        <ShowChances TestNum={3} trues={sum[0]} />
+                        <ShowChances TestNum={3} trues={sum[2]} />
                     </Col>
                     <Col md={6} className="results-contact h3">
                         <div>
