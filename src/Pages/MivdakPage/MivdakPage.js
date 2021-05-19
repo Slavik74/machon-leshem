@@ -30,7 +30,7 @@ useEffect(() => {
     }
 
 
-    function handleTimerEnd(res){
+    function handleTestFinished(res){
         test_results.push(...res)
         setTestNum(testNum+1)
     }
@@ -42,11 +42,11 @@ useEffect(() => {
         if(testNum === null) {
             return <MivdakIntro handleStartTests={handleStartTests} />
         } else if(testNum === 1) {
-            return <TestShapes testNum={testNum} testsData={testData1} handleTestFinished={handleTimerEnd} />
+            return <TestShapes testNum={testNum} testsData={testData1} handleTestFinished={handleTestFinished} />
         } else if(testNum === 2) {
-            return <TestLogic testNum={testNum} testsData={testData2} handleTestFinished={handleTimerEnd} />
+            return <TestLogic testNum={testNum} testsData={testData2} handleTestFinished={handleTestFinished} />
         } else if(testNum === 3) {
-            return <TestShapes testNum={testNum} testsData={testData3} handleTestFinished={handleTimerEnd} />
+            return <TestShapes testNum={testNum} testsData={testData3} handleTestFinished={handleTestFinished} />
         } else {
             return <TestsResults testsResults={test_results} />
         }    
