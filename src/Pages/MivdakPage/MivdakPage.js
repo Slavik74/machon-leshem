@@ -12,7 +12,6 @@ export default function MivdakPage() {
 
     const [test_results, SetTest_results] = useState([])
 
-    const tests = testsJSON.map(plainTest => new MivdakModel(plainTest));
     const [testNum, setTestNum] = useState(null)
     const [testData1, setTestData1] = useState(null)
     const [testData2, setTestData2] = useState(null)
@@ -20,6 +19,7 @@ export default function MivdakPage() {
 
 
 useEffect(() => {
+    const tests = testsJSON.map(plainTest => new MivdakModel(plainTest));
     setTestData1(()=> tests.filter(test => Number(test.TEST_NUM) === 1))
     setTestData2(()=> tests.filter(test => Number(test.TEST_NUM) === 2))
     setTestData3(()=> tests.filter(test => Number(test.TEST_NUM) === 3))
