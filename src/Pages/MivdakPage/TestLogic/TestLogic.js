@@ -18,6 +18,9 @@ export default function TestLogic({testsData, handleTestFinished}) {
     const [qAnswer, setQAnswer] = useState(null)
     const [isAnswerCorrect, setIsAnswerCorrect] = useState(null)
 
+    //Save user selected answers
+    const [user_answers, SetUser_answers] = useState([])
+
     //Toggle selected answer for answer options
     const handleAnswerSelect = event => {
         setAnswersToggle(event.target.id);
@@ -27,11 +30,23 @@ export default function TestLogic({testsData, handleTestFinished}) {
 
     useEffect(() => {
         setIsAnswerCorrect(!!qAnswer && Number(qAnswer)===Number(testsData[qnumber-1].TRUE_Answer)? 1:0)
+
+        //Save users answer selections
+        let copy = [...user_answers];
+        copy[qnumber-1] = +qAnswer;
+        SetUser_answers(copy);
+
     }, [qAnswer])
 
     useEffect(() => {
-        setQAnswer(null)
-        setAnswersToggle(null);        
+        if(user_answers[qnumber-1]){
+            setQAnswer(user_answers[qnumber-1])
+            setAnswersToggle('answer'+user_answers[qnumber-1]);
+        }
+        else{
+            setQAnswer(null)
+            setAnswersToggle(null);        
+        }
     }, [qnumber])
 
 
@@ -58,6 +73,8 @@ export default function TestLogic({testsData, handleTestFinished}) {
     const total_questions = testsData.length;
 
     const answers_count = Number(testsData[qnumber-1].ANSWER_COUNT)
+
+    //Save test results with correct/wront answers    
     const [test_results, setTest_results] = useState(Array.from({length: 2},()=> Array.from({length: total_questions}, () => null)));
 
     if (isTimerEnd)
