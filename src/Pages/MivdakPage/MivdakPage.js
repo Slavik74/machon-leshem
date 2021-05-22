@@ -10,7 +10,9 @@ import TestsResults from './TestsResults/TestsResults';
 
 export default function MivdakPage() {
 
-    const [test_results, SetTest_results] = useState([])
+    const [test_results1, SetTest_results1] = useState([])
+    const [test_results2, SetTest_results2] = useState([])
+    const [test_results3, SetTest_results3] = useState([])
 
     const [testNum, setTestNum] = useState(null)
     const [testData1, setTestData1] = useState(null)
@@ -31,14 +33,17 @@ useEffect(() => {
 
 
     function handleTestFinished(res){
-        test_results.push(...res)
+        //test_results.push(...res)
+        if (testNum===1) test_results1.push(res)
+        if (testNum===2) test_results2.push(res)
+        if (testNum===3) test_results3.push(res)
         setTestNum(testNum+1)
     }
 
 
 
     const renderTest = () => {   
-        
+    
         if(testNum === null) {
             return <MivdakIntro handleStartTests={handleStartTests} />
         } else if(testNum === 1) {
@@ -48,7 +53,7 @@ useEffect(() => {
         } else if(testNum === 3) {
             return <TestShapes testNum={testNum} testsData={testData3} handleTestFinished={handleTestFinished} />
         } else {
-            return <TestsResults testsResults={test_results} />
+            return <TestsResults testsResults1={test_results1} testsResults2={test_results2} testsResults3={test_results3} />
         }    
     }
 

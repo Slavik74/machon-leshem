@@ -58,12 +58,11 @@ export default function TestShapes({testNum, testsData, handleTestFinished}) {
         setQnumber(qnumber+1);        
 
         let copy = [...test_results];
-        copy[0][qnumber-1] = +qnumber;
-        copy[1][qnumber-1] = +isAnswerCorrect;
+        copy[qnumber-1] = +isAnswerCorrect;
         setTest_results(copy);
 
         if (qnumber>=total_questions)
-            handleTestFinished(test_results);
+            handleTestFinished(copy);
     };
 
     const testTime = Number(testsData[qnumber-1].Time)*60;
@@ -75,7 +74,8 @@ export default function TestShapes({testNum, testsData, handleTestFinished}) {
     const answers_count = Number(testsData[qnumber-1].ANSWER_COUNT)
 
     //Save test results with correct/wront answers
-    const [test_results, setTest_results] = useState(Array.from({length: 2},()=> Array.from({length: total_questions}, () => null)));
+    //const [test_results, setTest_results] = useState(Array.from({length: 2},()=> Array.from({length: total_questions}, () => null)));
+    const [test_results, setTest_results] = useState(Array(total_questions).fill(0))
 
     if (isTimerEnd)
         handleTestFinished(test_results);

@@ -38,10 +38,27 @@ export function ShowChances({TestNum, trues}) {
 
 
 
-export default function TestsResults({testsResults}) {    
+export default function TestsResults({testsResults1, testsResults2, testsResults3}) {    
 
 
     const [showContact, setShowContact] = useState(false);
+
+    const testsResults = []
+    if (testsResults1[1])
+        testsResults.push([...testsResults1[0]])
+    else
+        testsResults.push(...testsResults1)
+
+    if (testsResults2[1])
+        testsResults.push([...testsResults2[0]])
+    else
+        testsResults.push(...testsResults2)
+
+    if (testsResults3[1])
+        testsResults.push([...testsResults3[0]])
+    else
+        testsResults.push(...testsResults3)
+
 
     let sum = new Array(3).fill(0);
 
@@ -68,16 +85,16 @@ export default function TestsResults({testsResults}) {
                         <div>תוצאות מבחן צורות:</div>
                         <table className="results-table">
                             <tr>
-                                {testsResults[0].map((subItems) => {
-                                    return <th> {subItems} </th>;
+                                {testsResults[0].map((subItems, index) => {
+                                    return <th> {index+1} </th>;
                                 })}
                             </tr>
                             <tr>
                                 {
-                                testsResults[1].map((subItems) => {
+                                testsResults[0].map((subItems) => {
                                     const color = subItems === 1? 'fore-green': 'fore-red'
-                                    sum[0] += subItems
-                                    return <td className={color}> {subItems} </td>;
+                                    sum[0] += Number(subItems)
+                                    return <td className={color}> {subItems? subItems:0} </td>;
                                 })                            
                                 }
                             </tr>
@@ -90,15 +107,15 @@ export default function TestsResults({testsResults}) {
                         <div>תוצאות מבחן לוגיקה:</div>
                         <table className="results-table">
                             <tr>
-                                {testsResults[2].map((subItems, sIndex) => {
-                                    return <th> {subItems} </th>;
+                                {testsResults[1].map((subItems, index) => {
+                                    return <th> {index+1} </th>;
                                 })}
                             </tr>
                             <tr>
-                                {testsResults[3].map((subItems, sIndex) => {
+                                {testsResults[1].map((subItems) => {
                                     const color = subItems === 1? 'fore-green': 'fore-red';
-                                    sum[1] += subItems
-                                    return <td className={color}> {subItems} </td>;                                
+                                    sum[1] += Number(subItems)
+                                    return <td className={color}> {subItems? subItems:0} </td>;
                                 })}
                             </tr>
                         </table> 
@@ -109,15 +126,15 @@ export default function TestsResults({testsResults}) {
                         <div>תוצאות מבחן סדרות:</div>
                         <table className="results-table">
                             <tr>
-                                {testsResults[4].map((subItems, sIndex) => {
-                                    return <th> {subItems} </th>;
+                                {testsResults[2].map((subItems, index) => {
+                                    return <th> {index+1} </th>;
                                 })}
                             </tr>
                             <tr>
-                                {testsResults[5].map((subItems, sIndex) => {
+                                {testsResults[2].map((subItems) => {
                                     const color = subItems === 1? 'fore-green': 'fore-red'
-                                    sum[2] += subItems
-                                    return <td className={color}> {subItems} </td>;
+                                    sum[2] += Number(subItems)
+                                    return <td className={color}> {subItems? subItems:0} </td>;
                                 })}
                             </tr>
                         </table> 
