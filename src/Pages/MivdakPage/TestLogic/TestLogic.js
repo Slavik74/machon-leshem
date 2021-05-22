@@ -62,7 +62,7 @@ export default function TestLogic({testsData, handleTestFinished}) {
         setTest_results(copy);
 
         if (qnumber>=total_questions)
-            handleTestFinished(test_results);
+            handleTestFinished(copy);
     };
 
     const testTime = Number(testsData[qnumber-1].Time)*60;
